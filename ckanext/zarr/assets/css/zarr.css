@@ -1,2 +1,44 @@
 /* This file overwrites css from the base ckan theme */
+.promoted-background {
+    background: url("/images/zarr_bg.png") no-repeat center center;
+    background-size: cover;
+}
 
+.promoted-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 72px);
+    height: 100%;
+    background: url("/images/zarr_bg_transparent_layer.png") no-repeat center center;
+    background-size: auto 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media only screen and (min-width: 1800px) {
+    .promoted-background::before {
+        width: 100%;
+        background-size: cover;
+    }
+}
+
+.promoted-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72px;
+    height: 100%;
+    background: url("/images/3colors.png") no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+    z-index: 1;
+
+}
+
+.promoted-container {
+    position: relative;
+    z-index: 2;
+}

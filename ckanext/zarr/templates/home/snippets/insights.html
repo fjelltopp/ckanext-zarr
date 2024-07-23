@@ -1,0 +1,26 @@
+{% ckan_extends %}
+
+{% set default_labels = [
+    {'label': 'Insight 1', 'image': 'insight_img_1.png'},
+    {'label': 'Insight 2', 'image': 'insight_img_2.png'},
+    {'label': 'Insight 3', 'image': 'insight_img_3.png'},
+] %}
+
+{% set default_stats =  [
+    {'label': 'Total Users', 'value': 150},
+    {'label': 'Total Datasets', 'value': 230},
+    {'label': 'Total Organizations', 'value': 45},
+    {'label': 'Total Groups', 'value': 12},
+     {'label': 'Total Resources', 'value': 345},
+    {'label': 'Total Views', 'value': 1200}
+] %}
+
+{% set labels = labels | default(default_labels) %}
+{% set stats = stats | default(default_stats) %}
+
+
+{% block bottom_container_left_label %}{{ _('Section title') }}{% endblock %}
+
+{% block bottom_container_left_content_label %}{{ _('Indicators') }}{% endblock %}
+
+{% block bottom_container_right_label %}Data hub stats{% endblock %}
