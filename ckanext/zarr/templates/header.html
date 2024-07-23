@@ -1,4 +1,21 @@
 {% ckan_extends %}
 
 {% block header_title %}Zambia Research and<br/>Evaluation Repository{% endblock %}
+
 {% block logo %}zarr_logo.png{% endblock %}
+
+{% block nav_items %}
+        {% if c.userobj %}
+            {{ h.build_nav_main(
+                ('home.about', _('About')),
+                ('dataset.search', _('Find Data')),
+                ('activity.dashboard', _('My account'))
+                 ) }}
+        {% else %}
+            {{ h.build_nav_main(
+                ('home.about', _('About')),
+                ('dataset.search', _('Find Data')),
+                ('user.login', _('Log in'))
+                 ) }}
+        {% endif %}
+{% endblock %}
