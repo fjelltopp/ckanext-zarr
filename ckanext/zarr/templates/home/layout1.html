@@ -1,0 +1,18 @@
+{% ckan_extends %}
+
+{% block featured %}
+    <div class="recently-updated">
+        <div class="container">
+            <div class="recently-updated-title">
+                <h3>{{ _('Featured Datasets') }}</h3>
+                <a class="view-all-btn" href="{{ url_for('dataset.search', tags='Featured') }}">{{ _('See all') }}</a>
+            </div>
+            {% snippet 'home/snippets/recently_updated.html', packages=h.get_featured_datasets(), origin='homepage' %}
+            <div class="recently-updated-title">
+                <h3>{{ _('Recently Updated Datasets') }}</h3>
+                <a class="view-all-btn" href="{{ h.url_for('/dataset') }}">{{ _('See all') }}</a>
+            </div>
+            {% snippet 'home/snippets/recently_updated.html', packages=h.get_recently_updated_datasets(), origin='homepage' %}
+        </div>
+    </div>
+{% endblock %}

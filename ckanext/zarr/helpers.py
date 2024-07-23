@@ -2,6 +2,7 @@ import ckan.logic as logic
 import ckan.model as model
 from ckan.common import c, request, is_flask_request, g
 from datetime import datetime, timedelta
+from ckan.plugins import toolkit
 
 
 def get_user_obj(field=""):
@@ -127,3 +128,9 @@ def lower_formatter(input):
 
 def month_formatter(month):
     return datetime.strptime(month, "%Y-%m").strftime("%b %Y")
+
+
+def get_recently_updated_datasets():
+    recently_updated = toolkit.get_action('package_search')(
+        data_dict={'q': '*:*', 'sort': 'metadata_modified desc', 'rows': 3})['results']
+    return recently_updated[:3]
