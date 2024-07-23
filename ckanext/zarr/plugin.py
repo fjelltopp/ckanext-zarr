@@ -36,6 +36,7 @@ class WHOAFROPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
             'get_user_obj': zarr_helpers.get_user_obj,
             'month_formatter': zarr_helpers.month_formatter,
             'get_recently_updated_datasets': zarr_helpers.get_recently_updated_datasets,
+            'get_last_modifier': zarr_helpers.get_last_modifier,
         }
 
     # IConfigurer

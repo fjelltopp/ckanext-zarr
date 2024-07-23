@@ -134,3 +134,10 @@ def get_recently_updated_datasets():
     recently_updated = toolkit.get_action('package_search')(
         data_dict={'q': '*:*', 'sort': 'metadata_modified desc', 'rows': 3})['results']
     return recently_updated[:3]
+
+
+def get_last_modifier(package_id):
+    package_activity = toolkit.get_action('package_activity_list')(
+        data_dict={'id': package_id}
+    )
+    return get_user_from_id(package_activity[0]['user_id'])
