@@ -17,13 +17,6 @@
     z-index: 1;
 }
 
-@media only screen and (min-width: 1800px) {
-    .promoted-background::before {
-        width: 100%;
-        background-size: cover;
-    }
-}
-
 .promoted-background::after {
     content: '';
     position: absolute;
