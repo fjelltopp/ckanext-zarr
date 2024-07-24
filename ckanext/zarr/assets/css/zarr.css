@@ -1,10 +1,10 @@
 /* This file overwrites css from the base ckan theme */
-.promoted-background {
+.homepage .promoted-background {
     background: url("/images/zarr_bg.png") no-repeat center center;
     background-size: cover;
 }
 
-.promoted-background::before {
+.homepage .promoted-background::before {
     content: '';
     position: absolute;
     top: 0;
@@ -17,7 +17,7 @@
     z-index: 1;
 }
 
-.promoted-background::after {
+.homepage .promoted-background::after {
     content: '';
     position: absolute;
     top: 0;
@@ -31,7 +31,37 @@
 
 }
 
+.promoted-background {
+    background-color: #13240F;
+}
+
 .promoted-container {
     position: relative;
     z-index: 2;
 }
+
+.recently-updated .view-all-btn {
+    background: none;
+}
+
+.subscribe .register {
+    color: white;
+    background-color: #13240F;
+    border: white thin solid;
+}
+
+.footer-search-section .lens-btn {
+    background-color: white;
+    border: inherit;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.footer-search-section .search-label {
+    display: none !important;
+}
+
+.footer-search-section #field-giant-search {
+    max-width: 371px;
+}
+
