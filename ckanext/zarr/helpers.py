@@ -92,15 +92,6 @@ def get_all_groups():
             data_dict={'sort': 'title asc', 'all_fields': True})
 
 
-def get_featured_datasets():
-    featured_datasets = logic.get_action('package_search')(
-        data_dict={'fq': 'tags:featured', 'sort': 'metadata_modified desc', 'rows': 3})['results']
-    recently_updated = logic.get_action('package_search')(
-        data_dict={'q': '*:*', 'sort': 'metadata_modified desc', 'rows': 3})['results']
-    datasets = featured_datasets + recently_updated
-    return datasets[:3]
-
-
 def get_user_from_id(userid):
     user_show_action = logic.get_action('user_show')
     user_info = user_show_action({}, {"id": userid})
@@ -128,20 +119,4 @@ def lower_formatter(input):
 
 def month_formatter(month):
     return datetime.strptime(month, "%Y-%m").strftime("%b %Y")
-
-
-def get_recently_updated_datasets():
-    recently_updated = toolkit.get_action('package_search')(
-        data_dict={'q': '*:*', 'sort': 'metadata_modified desc', 'rows': 3})['results']
-    return recently_updated[:3]
-
-
-def get_last_modifier(package_id):
-    try:
-        package_activity = toolkit.get_action('package_activity_list')(
-            data_dict={'id': package_id}
-        )
-        return get_user_from_id(package_activity[0]['user_id'])
-    except Exception:  # TODO: An error is generated, to be investigated, for demo purpose added an exception
-        return None
 
