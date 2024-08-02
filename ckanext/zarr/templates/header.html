@@ -1,8 +1,11 @@
 {% ckan_extends %}
 
-{% block header_title %}Zambia Research and<br/>Evaluation Repository{% endblock %}
-
-{% block logo %}zarr_logo.png{% endblock %}
+{% block header_logo %}
+    {% snippet 'snippets/header_logo.html',
+        site_title = g.site_title,
+        logo='/images/zarr_logo.png',
+        header_title='Zambia Research and<br/>Evaluation Repository' | safe %}
+{% endblock %}
 
 {% block nav_items %}
         {% if c.userobj %}

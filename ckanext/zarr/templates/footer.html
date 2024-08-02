@@ -1,28 +1,9 @@
 {% ckan_extends %}
 
+{% block footer_nav %}
+    {% snippet 'snippets/footer_links.html', copyrights_owner='[name]', devs='<a class="hide-text" target="_blank" href="https://fjelltopp.org">Fjelltopp</a>' %}
+{% endblock %}
+
+
 {% block footer_logo_section %}<p style="margin-bottom: 19px"></p>{% endblock %}
 
-{% block footer_links %}
-    <li><a class="footer-link" href="{{ h.url_for('/organization') }}">{{ _('Teams') }}</a></li>
-    <li><a class="footer-link" href="{{ h.url_for('/user') }}">{{ _('Users') }}</a></li>
-    <li><a class="footer-link" href="#" target="_blank">{{ _('Terms and conditions') }}</a><br />
-    <li><a class="footer-link" href="http://docs.ckan.org/en/2.10/api/" target="_blank">{{ _('API Docs') }}</a></li>
-    <li>
-      <span class="desc desc-wide">{% trans %}© [name] 2024. An open source <a class="hide-text" target="_blank" href="https://ckan.org/">
-CKAN</a> project, built by <a class="hide-text" target="_blank" href="https://fjelltopp.org">Fjelltopp</a>{% endtrans %}</span>
-    </li>
-{% endblock %}
-
-{% block footer_description_tablet %}
-          <span class="desc desc-tablet">{% trans %}© [name] 2024. An open source <a class="hide-text" target="_blank" href="https://ckan.org/">
-    CKAN</a> project, built by <a class="hide-text" target="_blank" href="https://fjelltopp.org">Fjelltopp</a>{% endtrans %}</span>
-{% endblock %}
-
-{% block footer_mobile_links %}
-    <p><a class="footer-link" href="{{ h.url_for('/organization') }}">{{ _('Organizations') }}</a></p>
-    <p><a class="footer-link" href="{{ h.url_for('/user/login') }}">{{ _('Account login') }}</a></p>
-    <p><a class="footer-link" href="#" target="_blank">{{ _('Terms and conditions') }}</a><br />
-    <p><a class="footer-link" href="http://docs.ckan.org/en/2.10/api/" target="_blank">{{ _('API Docs') }}</a></p>
-    <p class="desc desc-mobile">{% trans %}© WHO 2024. An open source <a class="hide-text" target="_blank" href="https://ckan.org/">
-    CKAN</a> project, built by <a class="hide-text" target="_blank" href="https://fjelltopp.org">Fjelltopp</a>{% endtrans %}</p>
-{% endblock %}

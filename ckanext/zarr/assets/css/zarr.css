@@ -129,4 +129,17 @@
     color: #13240F;
 }
 
+.fa-search {
+    color: #198A00;
+}
+
+.big-search-form .lens-btn {
+    background-color: white;
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+.badge {
+    color: #EF7D00;
+}
 
