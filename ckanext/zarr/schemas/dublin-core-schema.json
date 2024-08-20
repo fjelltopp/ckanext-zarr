@@ -1,0 +1,191 @@
+{
+  "scheming_version": 2,
+  "dataset_type": "dataset",
+  "about": "A Dublin Core metadata schema for datasets aligned with DCAT AP 2.1",
+  "dataset_fields": [
+    {
+      "field_name": "title",
+      "label": "Title",
+      "preset": "title",
+      "required": true,
+      "help_text": "A name given to the resource."
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug",
+      "form_placeholder": "eg. my-dataset"
+    },
+    {
+      "field_name": "notes",
+      "label": "Description",
+      "required": true,
+      "form_snippet": "markdown.html",
+      "help_text": "An account of the resource. May include an abstract, table of contents, or free-text account."
+    },
+    {
+      "field_name": "doi",
+      "label": "DOI",
+      "form_placeholder": "e.g., 10.1000/xyz123",
+      "help_text": "Digital Object Identifier for the dataset"
+    },
+    {
+      "field_name": "data_standard",
+      "label": "Data Standard",
+      "form_placeholder": "e.g., ISO 19115, Darwin Core",
+      "help_text": "The metadata standard or schema used for this dataset"
+    },
+    {
+      "field_name": "provenance",
+      "label": "Provenance",
+      "form_snippet": "markdown.html",
+      "help_text": "Detailed information about the origin and processing history of the dataset"
+    },
+    {
+      "field_name": "quality_indicator",
+      "label": "Quality Indicator",
+      "form_placeholder": "e.g., 5-star rating, quality assessment result",
+      "help_text": "Indicator of the dataset's quality or reliability"
+    },
+    {
+      "field_name": "preservation_statement",
+      "label": "Preservation Statement",
+      "form_snippet": "markdown.html",
+      "help_text": "Information about long-term preservation plans for this dataset"
+    },
+    {
+      "field_name": "tag_string",
+      "label": "Keywords",
+      "preset": "tag_string_autocomplete",
+      "form_placeholder": "eg. economy, mental health, government",
+      "help_text": "The topic of the resource. Typically represented using keywords, key phrases, or classification codes."
+    },
+    {
+      "field_name": "creator",
+      "label": "Creator",
+      "preset": "multiple_text",
+      "form_placeholder": "The entity primarily responsible for making the resource",
+      "help_text": "An entity primarily responsible for making the resource. Examples: a person, organization, or service."
+    },
+    {
+      "field_name": "contributor",
+      "label": "Contributor",
+      "preset": "multiple_text",
+      "form_placeholder": "An entity responsible for making contributions to the resource",
+      "help_text": "An entity responsible for making contributions to the resource. Examples: a person, organization, or service."
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "preset": "dataset_organization",
+      "help_text": "An entity responsible for making the resource available. Examples: a person, organization, or service."
+    },
+    {
+      "field_name": "publisher_name",
+      "label": "Publisher Name",
+      "form_placeholder": "Name of the publishing entity",
+      "help_text": "The name of the entity responsible for making the resource available.",
+      "required": true
+    },
+
+    {
+      "field_name": "date",
+      "label": "Date",
+      "preset": "date",
+      "help_text": "A point or period of time associated with an event in the lifecycle of the resource. Format: YYYY-MM-DD"
+    },
+    {
+      "field_name": "temporal_coverage",
+      "label": "Temporal Coverage",
+      "preset": "multiple_text",
+      "help_text": "The temporal period or periods that the dataset covers. Use ISO 8601 date format (YYYY-MM-DD)."
+    },
+    {
+      "field_name": "license_id",
+      "label": "Rights",
+      "form_snippet": "license.html",
+      "help_text": "Information about rights held in and over the resource. Typically includes a statement about various property rights associated with the resource, including intellectual property rights."
+    },
+    {
+      "field_name": "spatial_coverage",
+      "label": "Spatial Coverage",
+      "preset": "multiple_text",
+      "help_text": "The spatial extent or scope of the content of the resource. Spatial topic may be a named place or a location specified by its geographic coordinates."
+    },
+    {
+      "field_name": "type",
+      "label": "Type",
+      "preset": "select",
+      "choices": [
+        {"value": "dataset", "label": "Dataset"},
+        {"value": "document", "label": "Document"},
+        {"value": "image", "label": "Image"},
+        {"value": "audio", "label": "Audio"},
+        {"value": "video", "label": "Video"},
+        {"value": "software", "label": "Software"},
+        {"value": "service", "label": "Service"},
+        {"value": "collection", "label": "Collection"},
+        {"value": "event", "label": "Event"},
+        {"value": "interactive_resource", "label": "Interactive Resource"},
+        {"value": "physical_object", "label": "Physical Object"},
+        {"value": "other", "label": "Other"}
+      ],
+      "help_text": "The nature or genre of the resource. Recommended to use a controlled vocabulary such as the DCMI Type Vocabulary."
+    },
+    {
+      "field_name": "source",
+      "label": "Source",
+      "form_snippet": "markdown.html",
+      "help_text": "A related resource from which the described resource is derived. The described resource may be derived from the related resource in whole or in part."
+    },
+    {
+      "field_name": "relation",
+      "label": "Relation",
+      "preset": "multiple_text",
+      "form_placeholder": "A related resource",
+      "help_text": "A related resource. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."
+    },
+    {
+      "field_name": "language",
+      "label": "Language",
+      "preset": "multiple_select",
+      "choices": [
+        {"value": "en", "label": "English"},
+        {"value": "fr", "label": "French"},
+        {"value": "es", "label": "Spanish"},
+        {"value": "de", "label": "German"},
+        {"value": "it", "label": "Italian"},
+        {"value": "ja", "label": "Japanese"},
+        {"value": "zh", "label": "Chinese"},
+        {"value": "other", "label": "Other"}
+      ],
+      "form_placeholder": "The language(s) of the resource",
+      "help_text": "A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646."
+    }
+  ],
+  "resource_fields": [
+    {
+      "field_name": "url",
+      "label": "URL",
+      "preset": "resource_url_upload"
+    },
+    {
+      "field_name": "name",
+      "label": "Name",
+      "form_placeholder": "A descriptive title for the resource.",
+      "help_text": "A name given to the resource."
+    },
+    {
+      "field_name": "description",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "help_text": "An account of the resource."
+    },
+    {
+      "field_name": "format",
+      "label": "Format",
+      "preset": "resource_format_autocomplete",
+      "help_text": "The file format, physical medium, or dimensions of the resource. Examples include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."
+    }
+  ]
+}
