@@ -25,7 +25,7 @@
     },
     {
       "field_name": "doi",
-      "label": "DOI",
+      "label": "Digital Object Identier",
       "form_placeholder": "e.g., 10.1000/xyz123",
       "help_text": "Digital Object Identifier for the dataset"
     },
