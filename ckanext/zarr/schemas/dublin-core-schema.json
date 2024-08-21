@@ -8,7 +8,7 @@
       "label": "Title",
       "preset": "title",
       "required": true,
-      "help_text": "A name given to the resource."
+      "help_text": "A descriptive title for the dataset."
     },
     {
       "field_name": "name",
@@ -21,7 +21,7 @@
       "label": "Description",
       "required": true,
       "form_snippet": "markdown.html",
-      "help_text": "An account of the resource. May include an abstract, table of contents, or free-text account."
+      "help_text": "A free-text account of the dataset."
     },
     {
       "field_name": "doi",
@@ -58,7 +58,7 @@
       "label": "Keywords",
       "preset": "tag_string_autocomplete",
       "form_placeholder": "eg. economy, mental health, government",
-      "help_text": "The topic of the resource. Typically represented using keywords, key phrases, or classification codes."
+      "help_text": "Keywords or tags describing the dataset. Use commas to separate multiple values."
     },
     {
       "field_name": "creator",
@@ -72,13 +72,13 @@
       "label": "Contributor",
       "preset": "multiple_text",
       "form_placeholder": "An entity responsible for making contributions to the resource",
-      "help_text": "An entity responsible for making contributions to the resource. Examples: a person, organization, or service."
+      "help_text": "An entity responsible for making contributions to the resource."
     },
     {
       "field_name": "owner_org",
       "label": "Organization",
       "preset": "dataset_organization",
-      "help_text": "An entity responsible for making the resource available. Examples: a person, organization, or service."
+      "help_text": "An entity responsible for making the resource available."
     },
     {
       "field_name": "publisher_name",
