@@ -225,7 +225,8 @@
     {
       "field_name": "data_standard",
       "label": "Data Standard",
-      "form_placeholder": "e.g., ISO 19115, Darwin Core",
+      "default": "DCAT, Dublin Core",
+      "form_placeholder": "e.g., DCAT, Dublin Core, ISO 19115 ...",
       "help_text": "The metadata standard or schema used for this dataset"
     },
     {
@@ -237,8 +238,21 @@
     {
       "field_name": "quality_indicator",
       "label": "Quality Indicator",
-      "form_placeholder": "e.g., 5-star rating, quality assessment result",
-      "help_text": "Indicator of the dataset's quality or reliability"
+      "preset": "select",
+      "choices": [
+        {"value": "1", "label": "1 star"},
+        {"value": "2", "label": "2 stars"},
+        {"value": "3", "label": "3 stars"},
+        {"value": "4", "label": "4 stars"},
+        {"value": "5", "label": "5 stars"}
+      ],
+      "help_text": "Indicator of the dataset's quality or reliability based on a 5-star rating system."
+    },
+    {
+      "field_name": "quality_comment",
+      "label": "Quality Details",
+      "form_snippet": "markdown.html",
+      "help_text": "Additional details about the quality assessment of this dataset."
     },
     {
       "field_name": "preservation_statement",
