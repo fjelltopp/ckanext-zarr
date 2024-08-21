@@ -24,41 +24,150 @@
       "help_text": "A free-text account of the dataset."
     },
     {
-      "field_name": "doi",
-      "label": "Digital Object Identier",
-      "form_placeholder": "e.g., 10.1000/xyz123",
-      "help_text": "Digital Object Identifier for the dataset"
-    },
-    {
-      "field_name": "data_standard",
-      "label": "Data Standard",
-      "form_placeholder": "e.g., ISO 19115, Darwin Core",
-      "help_text": "The metadata standard or schema used for this dataset"
-    },
-    {
-      "field_name": "provenance",
-      "label": "Provenance",
-      "form_snippet": "markdown.html",
-      "help_text": "Detailed information about the origin and processing history of the dataset"
-    },
-    {
-      "field_name": "quality_indicator",
-      "label": "Quality Indicator",
-      "form_placeholder": "e.g., 5-star rating, quality assessment result",
-      "help_text": "Indicator of the dataset's quality or reliability"
-    },
-    {
-      "field_name": "preservation_statement",
-      "label": "Preservation Statement",
-      "form_snippet": "markdown.html",
-      "help_text": "Information about long-term preservation plans for this dataset"
-    },
-    {
       "field_name": "tag_string",
       "label": "Keywords",
       "preset": "tag_string_autocomplete",
       "form_placeholder": "eg. economy, mental health, government",
       "help_text": "Keywords or tags describing the dataset. Use commas to separate multiple values."
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "preset": "dataset_organization",
+      "help_text": "The CKAN organization the dataset belongs to."
+    },
+    {
+      "field_name": "temporal_coverage",
+      "label": "Temporal coverage",
+      "repeating_subfields": [
+        {
+          "field_name": "start",
+          "label": "Start",
+          "preset": "dcat_date"
+        },
+        {
+          "field_name": "end",
+          "label": "End",
+          "preset": "dcat_date"
+        }
+      ],
+      "help_text": "The temporal period or periods the dataset covers."
+    },
+    {
+      "field_name": "spatial_coverage",
+      "label": "Spatial coverage",
+      "repeating_subfields": [
+        {
+          "field_name": "uri",
+          "label": "URI"
+        },
+        {
+          "field_name": "text",
+          "label": "Label"
+        },
+        {
+          "field_name": "geom",
+          "label": "Geometry"
+        },
+        {
+          "field_name": "bbox",
+          "label": "Bounding Box"
+        },
+        {
+          "field_name": "centroid",
+          "label": "Centroid"
+        }
+      ],
+      "help_text": "A geographic region that is covered by the dataset."
+    },
+    {
+      "field_name": "theme",
+      "label": "Theme",
+      "preset": "multiple_text",
+      "validators": "ignore_missing scheming_multiple_text",
+      "help_text": "A category of the dataset. A Dataset may be associated with multiple themes."
+    },
+    {
+      "field_name": "publisher",
+      "label": "Publisher",
+      "repeating_label": "Publisher",
+      "repeating_once": true,
+      "repeating_subfields": [
+        {
+          "field_name": "uri",
+          "label": "URI"
+        },
+        {
+          "field_name": "name",
+          "label": "Name"
+        },
+        {
+          "field_name": "email",
+          "label": "Email",
+          "display_snippet": "email.html"
+        },
+        {
+          "field_name": "url",
+          "label": "URL",
+          "display_snippet": "link.html"
+        },
+        {
+          "field_name": "type",
+          "label": "Type"
+        }
+      ],
+      "help_text": "Entity responsible for making the dataset available."
+    },
+
+    {
+      "field_name": "license_id",
+      "label": "Rights",
+      "form_snippet": "license.html",
+      "help_text": "Information about rights held in and over the resource. Typically includes a statement about various property rights associated with the resource, including intellectual property rights."
+    },
+    {
+      "field_name": "contact",
+      "label": "Contact points",
+      "repeating_label": "Contact point",
+      "repeating_subfields": [
+        {
+          "field_name": "uri",
+          "label": "URI"
+        },
+        {
+          "field_name": "name",
+          "label": "Name"
+        },
+        {
+          "field_name": "email",
+          "label": "Email",
+          "display_snippet": "email.html"
+        }
+      ],
+      "help_text": "Contact information for enquiries about the dataset."
+    },
+    {
+      "field_name": "language",
+      "label": "Language",
+      "preset": "multiple_select",
+      "choices": [
+        {"value": "en", "label": "English"},
+        {"value": "fr", "label": "French"},
+        {"value": "es", "label": "Spanish"},
+        {"value": "de", "label": "German"},
+        {"value": "it", "label": "Italian"},
+        {"value": "ja", "label": "Japanese"},
+        {"value": "zh", "label": "Chinese"},
+        {"value": "other", "label": "Other"}
+      ],
+      "form_placeholder": "The language(s) of the resource",
+      "help_text": "A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646."
+    },
+    {
+      "field_name": "doi",
+      "label": "Digital Object Identier",
+      "form_placeholder": "e.g., 10.1000/xyz123",
+      "help_text": "Digital Object Identifier for the dataset"
     },
     {
       "field_name": "creator",
@@ -75,44 +184,12 @@
       "help_text": "An entity responsible for making contributions to the resource."
     },
     {
-      "field_name": "owner_org",
-      "label": "Organization",
-      "preset": "dataset_organization",
-      "help_text": "An entity responsible for making the resource available."
-    },
-    {
-      "field_name": "publisher_name",
-      "label": "Publisher Name",
-      "form_placeholder": "Name of the publishing entity",
-      "help_text": "The name of the entity responsible for making the resource available.",
-      "required": true
-    },
-
-    {
       "field_name": "date",
       "label": "Date",
       "preset": "date",
       "help_text": "A point or period of time associated with an event in the lifecycle of the resource. Format: YYYY-MM-DD"
     },
-    {
-      "field_name": "temporal_coverage",
-      "label": "Temporal Coverage",
-      "preset": "multiple_text",
-      "help_text": "The temporal period or periods that the dataset covers. Use ISO 8601 date format (YYYY-MM-DD)."
-    },
-    {
-      "field_name": "license_id",
-      "label": "Rights",
-      "form_snippet": "license.html",
-      "help_text": "Information about rights held in and over the resource. Typically includes a statement about various property rights associated with the resource, including intellectual property rights."
-    },
-    {
-      "field_name": "spatial_coverage",
-      "label": "Spatial Coverage",
-      "preset": "multiple_text",
-      "help_text": "The spatial extent or scope of the content of the resource. Spatial topic may be a named place or a location specified by its geographic coordinates."
-    },
-    {
+      {
       "field_name": "type",
       "label": "Type",
       "preset": "select",
@@ -146,21 +223,28 @@
       "help_text": "A related resource. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."
     },
     {
-      "field_name": "language",
-      "label": "Language",
-      "preset": "multiple_select",
-      "choices": [
-        {"value": "en", "label": "English"},
-        {"value": "fr", "label": "French"},
-        {"value": "es", "label": "Spanish"},
-        {"value": "de", "label": "German"},
-        {"value": "it", "label": "Italian"},
-        {"value": "ja", "label": "Japanese"},
-        {"value": "zh", "label": "Chinese"},
-        {"value": "other", "label": "Other"}
-      ],
-      "form_placeholder": "The language(s) of the resource",
-      "help_text": "A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646."
+      "field_name": "data_standard",
+      "label": "Data Standard",
+      "form_placeholder": "e.g., ISO 19115, Darwin Core",
+      "help_text": "The metadata standard or schema used for this dataset"
+    },
+    {
+      "field_name": "provenance",
+      "label": "Provenance",
+      "form_snippet": "markdown.html",
+      "help_text": "Detailed information about the origin and processing history of the dataset"
+    },
+    {
+      "field_name": "quality_indicator",
+      "label": "Quality Indicator",
+      "form_placeholder": "e.g., 5-star rating, quality assessment result",
+      "help_text": "Indicator of the dataset's quality or reliability"
+    },
+    {
+      "field_name": "preservation_statement",
+      "label": "Preservation Statement",
+      "form_snippet": "markdown.html",
+      "help_text": "Information about long-term preservation plans for this dataset"
     }
   ],
   "resource_fields": [
