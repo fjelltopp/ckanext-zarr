@@ -121,9 +121,9 @@
 
     {
       "field_name": "license_id",
-      "label": "Rights",
+      "label": "License",
       "form_snippet": "license.html",
-      "help_text": "Information about rights held in and over the resource. Typically includes a statement about various property rights associated with the resource, including intellectual property rights."
+      "help_text": "Information about rights held in and over the resource."
     },
     {
       "field_name": "contact",
@@ -160,8 +160,8 @@
         {"value": "zh", "label": "Chinese"},
         {"value": "other", "label": "Other"}
       ],
-      "form_placeholder": "The language(s) of the resource",
-      "help_text": "A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646."
+      "form_placeholder": "The language(s) of the dataset",
+      "help_text": "One or more languages of the dataset."
     },
     {
       "field_name": "doi",
@@ -173,21 +173,21 @@
       "field_name": "creator",
       "label": "Creator",
       "preset": "multiple_text",
-      "form_placeholder": "The entity primarily responsible for making the resource",
-      "help_text": "An entity primarily responsible for making the resource. Examples: a person, organization, or service."
+      "form_placeholder": "The entity primarily responsible for making the dataset",
+      "help_text": "An entity primarily responsible for making the dataset."
     },
     {
       "field_name": "contributor",
       "label": "Contributor",
       "preset": "multiple_text",
-      "form_placeholder": "An entity responsible for making contributions to the resource",
-      "help_text": "An entity responsible for making contributions to the resource."
+      "form_placeholder": "An entity responsible for making contributions to the dataset",
+      "help_text": "An entity responsible for making contributions to the dataset."
     },
     {
       "field_name": "date",
       "label": "Date",
       "preset": "date",
-      "help_text": "A point or period of time associated with an event in the lifecycle of the resource. Format: YYYY-MM-DD"
+      "help_text": "A point or period of time associated with an event in the lifecycle of the dataset. Format: YYYY-MM-DD"
     },
       {
       "field_name": "type",
@@ -207,13 +207,13 @@
         {"value": "physical_object", "label": "Physical Object"},
         {"value": "other", "label": "Other"}
       ],
-      "help_text": "The nature or genre of the resource. Recommended to use a controlled vocabulary such as the DCMI Type Vocabulary."
+      "help_text": "The nature or genre of the dataset."
     },
     {
       "field_name": "source",
       "label": "Source",
       "form_snippet": "markdown.html",
-      "help_text": "A related resource from which the described resource is derived. The described resource may be derived from the related resource in whole or in part."
+      "help_text": "A related resource from which the described dataset is derived. The described resource may be derived from the related resource in whole or in part."
     },
     {
       "field_name": "relation",
