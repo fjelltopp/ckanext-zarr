@@ -143,3 +143,53 @@
     color: #EF7D00 !important;
 }
 
+/* package read - additional info */
+.additional-info {
+    margin-top: 48px;
+}
+
+.additional-info .table {
+    border-color: var(--primary10);
+}
+
+.additional-info .table thead {
+    background-color: var(--primary10);
+}
+
+.additional-info .group-header {
+    border-bottom: var(--primary65) thin solid;
+    background-color: var(--primary10);
+}
+
+.additional-info .table > :not(:first-child) {
+    border-top: var(--primary65) 2px solid;
+}
+
+.additional-info .table tbody th {
+    font-weight: 550;
+}
+
+.additional-info .table tbody td.dataset-details ol {
+    list-style-position: inside;
+    left: 0;
+    padding-left: 0;
+    margin-left: 0;
+
+}
+
+.additional-info .schema-group {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: var(--secondary);
+    background-color: var(--primary10);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.additional-info tr {
+    padding : 0;
+}
+
+
+
+
