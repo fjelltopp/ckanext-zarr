@@ -1,0 +1,42 @@
+<section class="additional-info">
+  <h3>{{ _('Metadata') }}</h3>
+  {% block package_additional_info_ %}
+    {% set groups = {} %}
+    {% for field in schema.dataset_fields %}
+      {% if field.display_group %}
+        {% if field.display_group not in groups %}
+          {% do groups.update({field.display_group: []}) %}
+        {% endif %}
+        {% do groups[field.display_group].append(field) %}
+      {% endif %}
+    {% endfor %}
+    {% for group, fields in groups.items() %}
+      <h4 class="schema-group">{{ _(group) }}</h4>
+      <table class="table table-condensed">
+        <tbody>
+          {% for field in fields %}
+            {% if field.field_name not in exclude_fields and field.display_snippet is not none %}
+              <tr>
+                <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+                <td class="dataset-details"{% if field.display_property %} property="{{ field.display_property }}"{% endif %}>
+                  {%- snippet 'scheming/snippets/display_field.html', field=field, data=pkg_dict, schema=schema -%}
+                </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endfor %}
+    {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
+      <h4 class="schema-group">{{ _("Other") }}</h4>
+      <table class="table table-condensed">
+        <tbody>
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("State") }}</th>
+            <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    {% endif %}
+  {% endblock %}
+</section>
