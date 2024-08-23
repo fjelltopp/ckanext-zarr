@@ -1,5 +1,18 @@
 <section class="additional-info">
   <h3>{{ _('Metadata') }}</h3>
+
+  {% macro get_pkg_value(pkg_dict, field_name) %}
+    {% if field_name in pkg_dict %}
+      {{ pkg_dict[field_name] }}
+    {% else %}
+      {% for extra in pkg_dict.extras %}
+        {% if extra.key == field_name %}
+          {{ extra.value }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endmacro %}
+
   {% block package_additional_info_ %}
     {% set groups = {} %}
     {% for field in schema.dataset_fields %}
@@ -11,10 +24,20 @@
       {% endif %}
     {% endfor %}
     {% for group, fields in groups.items() %}
+      {% set ns = namespace(show_group=false) %}
+      {% for field in fields %}
+        {% set value = get_pkg_value(pkg_dict, field.field_name) | trim %}
+        {% if value != '' and value != '[]' %}
+          {% set ns.show_group = true %}
+        {% endif %}
+      {% endfor %}
+      {% if ns.show_group %}
       <h4 class="schema-group">{{ _(group) }}</h4>
       <table class="table table-condensed">
         <tbody>
           {% for field in fields %}
+            {% set value = get_pkg_value(pkg_dict, field.field_name) | trim %}
+            {% if value != '' and value != '[]' %}
             {% if field.field_name not in exclude_fields and field.display_snippet is not none %}
               <tr>
                 <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
@@ -23,9 +46,12 @@
                 </td>
               </tr>
             {% endif %}
+          {% endif %}
+
           {% endfor %}
         </tbody>
       </table>
+    {% endif %}
     {% endfor %}
     {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
       <h4 class="schema-group">{{ _("Other") }}</h4>
