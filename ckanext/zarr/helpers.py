@@ -3,6 +3,7 @@ import ckan.model as model
 from ckan.common import c, request, is_flask_request, g
 from datetime import datetime, timedelta
 from ckan.plugins import toolkit
+import re
 
 
 def get_user_obj(field=""):
@@ -119,4 +120,18 @@ def lower_formatter(input):
 
 def month_formatter(month):
     return datetime.strptime(month, "%Y-%m").strftime("%b %Y")
+
+
+def multiple_select_formater(value):
+
+    if isinstance(value, str):
+        cleaned_value = value.strip().strip("[]'{}")
+        pattern = r"([a-zA-Z0-9_-]+(?:,[a-zA-Z0-9_-]+)*)"
+        match = re.match(pattern, cleaned_value)
+        if match:
+            inside_content = match.group(0)
+            elements = [element.strip() for element in inside_content.split(',')]
+            return elements
+        else:
+            return ''
 
