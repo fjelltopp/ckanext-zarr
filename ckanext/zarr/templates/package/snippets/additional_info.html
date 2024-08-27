@@ -1,54 +1,8 @@
+{% import 'package/snippets/macros.html' as fn %}
+
+
 <section class="additional-info">
   <h3>{{ _('Metadata') }}</h3>
-  {% macro get_pkg_value(pkg_dict, field_name) %}
-    {% if field_name in pkg_dict %}
-      {{ pkg_dict[field_name] }}
-    {% else %}
-      {% for extra in pkg_dict.extras %}
-        {% if extra.key == field_name %}
-          {{ extra.value }}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endmacro %}
-
-{% macro display_multiple_select(field, data) %}
-  {% set value = data[field.field_name] %}
-  {% set choices_dict = {} %}
-  {% for choice in field.choices %}
-    {% do choices_dict.update({choice.value: choice.label}) %}
-  {% endfor %}
-
-  {% if value is string %}
-    {% if value.startswith('[') and value.endswith(']') %}
-      {% set cleaned_value = value[1:-1].replace("'", "").replace('"', '').replace("{", "").replace("}", "").replace("\\", "") %}
-      {% if cleaned_value %}
-        {% set value_list = cleaned_value.split(',') %}
-        <ul>
-        {% for item in value_list %}
-          {% set trimmed_item = item.strip() %}
-          {% if trimmed_item in choices_dict %}
-            <li>{{ choices_dict[trimmed_item] }}</li>
-          {% endif %}
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% elif value in choices_dict %}
-      {{ choices_dict[value] }}
-    {% endif %}
-  {% elif value is iterable and value is not string %}
-    <ul>
-    {% for item in value %}
-      {% if item in choices_dict %}
-        <li>{{ choices_dict[item] }}</li>
-      {% endif %}
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endmacro %}
-
-
-
   {% block package_additional_info_ %}
 
     {% set groups = {} %}
@@ -62,36 +16,27 @@
     {% endfor %}
 
     {% for group, fields in groups.items() %}
-      {% set ns = namespace(show_group=false) %}
+      {% set ns = namespace(show_group=false, value='') %}
       {% for field in fields %}
-
-        {% set value = get_pkg_value(pkg_dict, field.field_name) | trim %}
-        {% if field.preset == 'multiple_select' %}
-          {% set value = display_multiple_select(field, pkg_dict) | striptags | replace(' ', '') | replace('\r\n', '') | trim %}
-        {% endif %}
+        {% set value = fn.get_pkg_value(pkg_dict, field.field_name) | trim %}
         {% if value != '' and value != '[]' %}
           {% set ns.show_group = true %}
         {% endif %}
-
       {% endfor %}
+
       {% if ns.show_group %}
       <h4 class="schema-group">{{ _(group) }}</h4>
       <table class="table table-condensed">
         <tbody>
           {% for field in fields %}
-            {% set value_check = '_' %}
-            {% if field.preset == 'multiple_select' %}
-              {% set value_check = display_multiple_select(field, pkg_dict) | striptags | replace(' ', '') | replace('\r\n', '') | trim %}
-            {% endif %}
-            {% set value = get_pkg_value(pkg_dict, field.field_name) | trim %}
-
-            {% if value != '' and value != '[]' and value_check != '' %}
+            {% set ns.value = fn.get_pkg_value(pkg_dict, field.field_name) | trim %}
+            {% if ns.value != '' and ns.value != '[]' %}
             {% if field.field_name not in exclude_fields and field.display_snippet is not none %}
               <tr>
                 <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
                 <td class="dataset-details"{% if field.display_property %} property="{{ field.display_property }}"{% endif %}>
                   {% if field.preset == 'multiple_select' %}
-                    {{ display_multiple_select(field, pkg_dict) }}
+                     {{ fn.display_multiple_select(field, pkg_dict, h.multiple_select_formater(ns.value) ) }}
                   {% else %}
                     {%- snippet 'scheming/snippets/display_field.html', field=field, data=pkg_dict, schema=schema -%}
                   {% endif %}
@@ -127,5 +72,6 @@
         </tbody>
       </table>
     {% endif %}
+
   {% endblock %}
 </section>
