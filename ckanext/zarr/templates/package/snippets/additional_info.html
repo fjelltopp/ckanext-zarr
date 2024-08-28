@@ -30,13 +30,16 @@
         <tbody>
           {% for field in fields %}
             {% set ns.value = fn.get_pkg_value(pkg_dict, field.field_name) | trim %}
-            {% if ns.value != '' and ns.value != '[]' %}
+            {% if field.preset == 'multiple_select' %}
+              {% set ns.value = h.multiple_select_formatter(ns.value) %}
+            {% endif %}
+            {% if ns.value != '' and ns.value != '[]' and ns.value != [] %}
             {% if field.field_name not in exclude_fields and field.display_snippet is not none %}
               <tr>
                 <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
                 <td class="dataset-details"{% if field.display_property %} property="{{ field.display_property }}"{% endif %}>
                   {% if field.preset == 'multiple_select' %}
-                     {{ fn.display_multiple_select(field, pkg_dict, h.multiple_select_formater(ns.value) ) }}
+                     {{ fn.display_multiple_select(field, pkg_dict, ns.value) }}
                   {% else %}
                     {%- snippet 'scheming/snippets/display_field.html', field=field, data=pkg_dict, schema=schema -%}
                   {% endif %}
