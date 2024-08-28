@@ -122,15 +122,12 @@ def month_formatter(month):
     return datetime.strptime(month, "%Y-%m").strftime("%b %Y")
 
 
-def multiple_select_formater(value):
-    if isinstance(value, str):
-        cleaned_value = value.strip().strip("[]'{}")
-        pattern = r"([a-zA-Z0-9_-]+(?:,[a-zA-Z0-9_-]+)*)"
-        match = re.match(pattern, cleaned_value)
-        if match:
-            inside_content = match.group(0)
-            elements = [element.strip() for element in inside_content.split(',')]
-            return elements
-        else:
-            return ''
-
+def multiple_select_formatter(value):
+    from markupsafe import Markup
+    import html
+    decoded_value = html.unescape(str(value))
+    cleaned = decoded_value.strip('[]{}\'')
+    values = [v.strip() for v in cleaned.split(',')]
+    if '{' and '}' in str(values):
+        return []
+    return values

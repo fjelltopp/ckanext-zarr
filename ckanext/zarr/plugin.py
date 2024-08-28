@@ -34,7 +34,7 @@ class WHOAFROPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
             'get_user_from_id': zarr_helpers.get_user_from_id,
             'get_user_obj': zarr_helpers.get_user_obj,
             'month_formatter': zarr_helpers.month_formatter,
-            'multiple_select_formater': zarr_helpers.multiple_select_formater
+            'multiple_select_formatter': zarr_helpers.multiple_select_formatter
         }
 
     # IConfigurer
