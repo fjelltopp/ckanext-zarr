@@ -123,7 +123,6 @@ def month_formatter(month):
 
 
 def multiple_select_formater(value):
-
     if isinstance(value, str):
         cleaned_value = value.strip().strip("[]'{}")
         pattern = r"([a-zA-Z0-9_-]+(?:,[a-zA-Z0-9_-]+)*)"
