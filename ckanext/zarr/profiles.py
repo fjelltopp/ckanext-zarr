@@ -8,10 +8,9 @@ from ckanext.dcat.profiles import RDFProfile
 ADMS = Namespace("http://www.w3.org/ns/adms#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 DQV = Namespace("http://www.w3.org/ns/dqv#")
+DCT = Namespace("http://purl.org/dc/terms/")
 
 log = logging.getLogger(__name__)
-
-DCT = Namespace("http://purl.org/dc/terms/")
 
 
 def add_fair_enhancements(g, dataset_dict, dataset_ref):
