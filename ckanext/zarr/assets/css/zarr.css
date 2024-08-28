@@ -134,11 +134,11 @@
 }
 
 #dataset-search-form .btn-default:hover > .fa-search {
-    color: #198A00 !important;
+    color: #198A00;
 }
 
 #dataset-search-form .btn-default > .fa-search {
-    color: #DFF0DB !important;
+    color: #DFF0DB;
 }
 
 .big-search-form .lens-btn {
