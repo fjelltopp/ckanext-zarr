@@ -303,10 +303,6 @@ dataset_fields:
 
 resource_fields:
 
-- field_name: url
-  label: URL
-  preset: resource_url_upload
-
 - field_name: name
   label: Name
   form_placeholder:
@@ -326,6 +322,44 @@ resource_fields:
   label: Availability
   help_text: Indicates how long it is planned to keep the resource available.
 
-- field_name: license
-  label: License
-  help_text: License in which the resource is made available. If not provided will be inherited from the dataset.
+- field_name: data_standard
+  label: Data Standard
+  preset: tag_string_autocomplete
+  form_placeholder: eg. DCAT, Dublin Core, ISO 19115
+  help_text: The metadata standards or schemas used for this dataset. Add multiple standards separated by commas.
+  display_group: Additional Metadata
+
+- field_name: provenance
+  label: Provenance
+  form_snippet: markdown.html
+  help_text: Detailed information about the origin and processing history of the dataset
+  display_group: Additional Metadata
+
+- field_name: quality_indicator
+  label: Quality Indicator
+  preset: select
+  choices:
+  - value: "1"
+    label: 1 star
+  - value: "2"
+    label: 2 stars
+  - value: "3"
+    label: 3 stars
+  - value: "4"
+    label: 4 stars
+  - value: "5"
+    label: 5 stars
+  help_text: Indicator of the dataset's quality or reliability based on a 5-star rating system.
+  display_group: Additional Metadata
+
+- field_name: quality_comment
+  label: Quality Details
+  form_snippet: markdown.html
+  help_text: Additional details about the quality assessment of this dataset.
+  display_group: Additional Metadata
+
+- field_name: preservation_statement
+  label: Preservation Statement
+  form_snippet: markdown.html
+  help_text: Information about long-term preservation plans for this dataset
+  display_group: Additional Metadata
