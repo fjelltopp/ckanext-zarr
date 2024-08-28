@@ -3,6 +3,7 @@ from rdflib import URIRef, BNode, Literal
 from rdflib.namespace import Namespace, RDF, RDFS, DC, DCTERMS, DCAT, FOAF
 from ckanext.dcat.profiles import RDFProfile
 
+# WIP
 
 # Additional namespaces we might need
 ADMS = Namespace("http://www.w3.org/ns/adms#")
