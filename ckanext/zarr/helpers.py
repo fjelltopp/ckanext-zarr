@@ -3,7 +3,7 @@ import ckan.model as model
 from ckan.common import c, request, is_flask_request, g
 from datetime import datetime, timedelta
 from ckan.plugins import toolkit
-import re
+import html
 
 
 def get_user_obj(field=""):
@@ -123,11 +123,9 @@ def month_formatter(month):
 
 
 def multiple_select_formatter(value):
-    from markupsafe import Markup
-    import html
     decoded_value = html.unescape(str(value))
     cleaned = decoded_value.strip('[]{}\'')
     values = [v.strip() for v in cleaned.split(',')]
-    if '{' and '}' in str(values):
-        return []
+    if '{' in str(values) and '}' in str(values):
+        return ''
     return values

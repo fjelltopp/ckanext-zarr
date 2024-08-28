@@ -33,7 +33,7 @@
             {% if field.preset == 'multiple_select' %}
               {% set ns.value = h.multiple_select_formatter(ns.value) %}
             {% endif %}
-            {% if ns.value != '' and ns.value != '[]' and ns.value != [] %}
+            {% if ns.value != '' and ns.value != '[]' %}
             {% if field.field_name not in exclude_fields and field.display_snippet is not none %}
               <tr>
                 <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
