@@ -120,12 +120,3 @@ def lower_formatter(input):
 
 def month_formatter(month):
     return datetime.strptime(month, "%Y-%m").strftime("%b %Y")
-
-
-def multiple_select_formatter(value):
-    decoded_value = html.unescape(str(value))
-    cleaned = decoded_value.strip('[]{}\'')
-    values = [v.strip() for v in cleaned.split(',')]
-    if '{' in str(values) and '}' in str(values):
-        return ''
-    return values

@@ -1,4 +1,14 @@
-{% import 'package/snippets/macros.html' as fn %}
+{% macro get_pkg_value(pkg_dict, field_name) %}
+    {% if field_name in pkg_dict %}
+      {{ pkg_dict[field_name] }}
+    {% else %}
+      {% for extra in pkg_dict.extras %}
+        {% if extra.key == field_name %}
+          {{ extra.value }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+{% endmacro %}
 
 
 <section class="additional-info">
@@ -18,7 +28,7 @@
     {% for group, fields in groups.items() %}
       {% set ns = namespace(show_group=false, value='') %}
       {% for field in fields %}
-        {% set value = fn.get_pkg_value(pkg_dict, field.field_name) | trim %}
+        {% set value = get_pkg_value(pkg_dict, field.field_name) | trim %}
         {% if value != '' and value != '[]' %}
           {% set ns.show_group = true %}
         {% endif %}
@@ -29,20 +39,12 @@
       <table class="table table-condensed">
         <tbody>
           {% for field in fields %}
-            {% set ns.value = fn.get_pkg_value(pkg_dict, field.field_name) | trim %}
-            {% if field.preset == 'multiple_select' %}
-              {% set ns.value = h.multiple_select_formatter(ns.value) %}
-            {% endif %}
+            {% set ns.value = get_pkg_value(pkg_dict, field.field_name) | trim %}
             {% if ns.value != '' and ns.value != '[]' %}
             {% if field.field_name not in exclude_fields and field.display_snippet is not none %}
               <tr>
                 <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
-                <td class="dataset-details"{% if field.display_property %} property="{{ field.display_property }}"{% endif %}>
-                  {% if field.preset == 'multiple_select' %}
-                     {{ fn.display_multiple_select(field, pkg_dict, ns.value) }}
-                  {% else %}
-                    {%- snippet 'scheming/snippets/display_field.html', field=field, data=pkg_dict, schema=schema -%}
-                  {% endif %}
+                <td class="dataset-details"{% if field.display_property %} property="{{ field.display_property }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html', field=field, data=pkg_dict, schema=schema -%}
                 </td>
               </tr>
             {% endif %}
