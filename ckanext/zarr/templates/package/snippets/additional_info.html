@@ -13,7 +13,7 @@
 
 <section class="additional-info">
   <h3>{{ _('Metadata') }}</h3>
-  {% block package_additional_info_ %}
+  {% block package_additional_info_for_zarr %}
 
     {% set groups = {} %}
     {% for field in schema.dataset_fields %}
