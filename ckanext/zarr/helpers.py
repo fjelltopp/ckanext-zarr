@@ -4,6 +4,7 @@ from ckan.common import c, request, is_flask_request, g
 from datetime import datetime, timedelta
 from ckan.plugins import toolkit
 import html
+import urllib.parse
 
 
 def get_user_obj(field=""):
@@ -120,3 +121,23 @@ def lower_formatter(input):
 
 def month_formatter(month):
     return datetime.strptime(month, "%Y-%m").strftime("%b %Y")
+
+
+def get_datasets_by_resource_type(resource_type):
+    params = {
+        'q': f'resource_type:"{resource_type}"',
+        'sort': 'metadata_modified desc'
+    }
+    base_url = toolkit.url_for('dataset.search')
+    query_string = urllib.parse.urlencode(params)
+    return f"{base_url}?{query_string}"
+
+
+def get_schema_field_choices(schema_type, schema_field_name):
+    schema = toolkit.get_action('scheming_dataset_schema_show')(
+        data_dict={'type': schema_type}
+    )
+    for field in schema.get('dataset_fields', []):
+        if field.get('field_name') == schema_field_name:
+            return [{'title': choice['label'], 'url': get_datasets_by_resource_type(choice['value'])} for choice in field.get('choices', [])]
+    return []
