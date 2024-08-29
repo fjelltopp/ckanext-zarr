@@ -126,7 +126,7 @@ def month_formatter(month):
 def get_datasets_by_resource_type(resource_type):
     params = {
         'q': f'resource_type:"{resource_type}"',
-        'sort': 'metadata_modified desc'
+        'sort': 'score desc,metadata_modified desc'
     }
     base_url = toolkit.url_for('dataset.search')
     query_string = urllib.parse.urlencode(params)
