@@ -65,15 +65,8 @@
     border: white thin solid;
 }
 
-.footer-search-section .lens-btn {
-    background-color: white;
-    border: inherit;
-    padding-left: 18px;
-    padding-right: 18px;
-}
-
-.footer-search-section .search-label {
-    display: none !important;
+.footer-search-section .fa-search {
+    color: var(--primary);
 }
 
 .topics-background {
@@ -141,25 +134,19 @@
 }
 
 .fa-search {
-    color: #198A00;
+    color: var(--secondary);
 }
 
 #dataset-search-form .btn-default:hover > .fa-search {
-    color: #198A00;
+    color: var(--secondary);
 }
 
 #dataset-search-form .btn-default > .fa-search {
-    color: #DFF0DB;
-}
-
-.big-search-form .lens-btn {
-    background-color: white;
-    padding-right: 14px;
-    padding-left: 14px;
+    color: var(--background);
 }
 
 .dataset-resources li a.badge, .dataset-resources li a.badge:hover {
-    color: #EF7D00 !important;
+    color: var(--tag) !important;
 }
 
 /* package read - additional info */
@@ -297,4 +284,3 @@
     margin-top: 20px;
     color: var(--primary);
 }
-/* about */
