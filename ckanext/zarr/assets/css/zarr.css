@@ -311,7 +311,9 @@
     margin-top: 20px;
     color: var(--primary);
 }
+/* about */
 
+/* misc */
 .dev-banner {
     background-color: var(--primary);
 }
@@ -347,3 +349,4 @@
 .stages li {
     background-color: var(--primary10);
 }
+/* misc */
