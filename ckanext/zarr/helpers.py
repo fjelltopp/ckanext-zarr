@@ -93,6 +93,24 @@ def get_all_groups():
             data_dict={'sort': 'title asc', 'all_fields': True})
 
 
+def get_topic_groups():
+    all_groups = logic.get_action('group_list')(
+        {'ignore_auth': True},
+        data_dict={
+            'sort': 'title asc',
+            'all_fields': True,
+            'include_extras': True
+        }
+    )
+    # Filter groups with 'topic' extra set to 'yes'
+    topic_groups = [
+        group for group in all_groups
+        if any(extra.get('key') == 'topic' and extra.get('value') == 'yes'
+               for extra in group.get('extras', []))
+    ]
+    return topic_groups
+
+
 def get_user_from_id(userid):
     user_show_action = logic.get_action('user_show')
     user_info = user_show_action({}, {"id": userid})
