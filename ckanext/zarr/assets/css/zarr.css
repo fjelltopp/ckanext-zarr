@@ -59,6 +59,12 @@
     background: none;
 }
 
+.search-section .big-search-form .lens-btn {
+    background-color: var(--light);
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
 .subscribe .register {
     color: white;
     background-color: #13240F;
