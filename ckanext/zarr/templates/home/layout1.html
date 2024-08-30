@@ -9,7 +9,7 @@
     <div class="container">
     <h1>{{ _('Find data by topic') }}</h1>
         {% block document_categories %}
-            {% snippet "group/snippets/group_list.html", groups=h.get_topic_groups(), origin='homepage' %}
+            {% snippet "group/snippets/group_list.html", groups=h.get_all_groups(), origin='homepage' %}
         {% endblock %}
     </div>
 </div>
