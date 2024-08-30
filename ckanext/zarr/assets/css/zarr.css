@@ -248,6 +248,15 @@
    margin-top: 36px;
 }
 
+@media only screen and (max-width: 1199px) {
+    .desc-wide {
+      display: none;
+    }
+    .desc-tablet {
+      display: block;
+    }
+}
+
 /* about */
 .zarr-about {
     line-height: 1.6;
