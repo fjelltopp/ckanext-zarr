@@ -31,6 +31,15 @@
 
 }
 
+.homepage .hero .insights figure {
+    margin-top: 20px;
+}
+
+.homepage .hero .insights figcaption {
+    margin-left: 15px;
+    width: 500px;
+}
+
 .promoted-background {
     background-color: #13240F;
 }
