@@ -343,3 +343,7 @@
 .editor .editor-info-block {
     background-color: var(--primary10);
 }
+
+.stages li {
+    background-color: var(--primary10);
+}
