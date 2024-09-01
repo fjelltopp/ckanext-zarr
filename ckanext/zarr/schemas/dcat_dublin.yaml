@@ -31,9 +31,9 @@ dataset_fields:
   display_group: Overview
 
 - field_name: tag_string
-  label: Keywords
+  label: Subject
   preset: tag_string_autocomplete
-  form_placeholder: eg. economy, mental health, government
+  form_placeholder: The topic of the dataset, e.g. economy, mental health, government
   required: true
   display_group: Overview
 
@@ -138,23 +138,6 @@ dataset_fields:
   display_group: Metadata
   validators: ignore_missing
 
-- field_name: source
-  label: Source
-  repeating_label: Source
-  repeating_once: true
-  repeating_subfields:
-    - field_name: name
-      label: Name
-    - field_name: notes
-      label: Notes
-    - field_name: URL
-      label: URL
-    - field_name: Identifier
-      label: Identifier
-  help_text: Any related source. Recommended practice is to identify the related source by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided, e.g. DOI.
-  display_group: Metadata
-  validators: ignore_missing
-
 - field_name: language
   label: Language
   preset: select
@@ -179,6 +162,23 @@ dataset_fields:
   help_text: A language of the dataset.
   display_group: Metadata
   default: en
+
+- field_name: source
+  label: Source
+  repeating_label: Source
+  repeating_once: true
+  repeating_subfields:
+    - field_name: name
+      label: Name
+    - field_name: notes
+      label: Notes
+    - field_name: URL
+      label: URL
+    - field_name: Identifier
+      label: Identifier
+  help_text: Any related source. Recommended practice is to identify the related source by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided, e.g. DOI.
+  display_group: Metadata
+  validators: ignore_missing
 
 - field_name: relation
   label: Relation
