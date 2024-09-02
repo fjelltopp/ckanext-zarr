@@ -1,11 +1,9 @@
 zarr-theme:
-  filter: cssrewrite
   output: zarr/%(version)s-zarr.css
   contents:
     - css/zarr.css
 
 zarr-theme-palette:
-  filter: cssrewrite
   output: zarr/%(version)s-zarr.css
   contents:
     - css/zarr_palette.css
