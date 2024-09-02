@@ -2,10 +2,6 @@ zarr-theme:
   output: zarr/%(version)s-zarr.css
   contents:
     - css/zarr.css
-
-zarr-theme-palette:
-  output: zarr/%(version)s-zarr.css
-  contents:
     - css/zarr_palette.css
 
 FileInputComponentStyles:
