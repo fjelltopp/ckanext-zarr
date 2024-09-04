@@ -349,7 +349,23 @@
 .stages li {
     background-color: var(--primary10);
 }
+
 /* misc */
+/* dataset creation / update styles */
+.form-group .form-label {
+    font-size: 16px;
+}
+
+.scheming-repeating-subfields-group .form-group .form-label {
+    font-size: 14px;
+
+}
+.scheming-repeating-subfields-group header.panel-heading,
+.scheming-repeating-subfields-group .fields-removed-notice {
+    font-size: 14px;
+    color: var(--A11y);
+}
+
 .licence-space {
     padding-top: 3px;
     padding-left: 15px;
@@ -357,3 +373,4 @@
     margin: 0;
     font-size: 14px;
 }
+
