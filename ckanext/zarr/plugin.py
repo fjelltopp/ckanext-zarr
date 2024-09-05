@@ -47,6 +47,7 @@ class WHOAFROPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
         new_fd = OrderedDict()
         new_fd['program_area'] = plugins.toolkit._('Program Areas')
         new_fd['tags'] = plugins.toolkit._('Tags')
+        new_fd['organization'] = plugins.toolkit._('Organizations')
         return new_fd
 
     # IResourceController
