@@ -10,8 +10,9 @@
 {% block nav_items %}
         {% if c.userobj %}
             {{ h.build_nav_main(
+                ('dataset.search', _('Data')),
+                ('organization.index', _('Organizations')),
                 ('home.about', _('About')),
-                ('dataset.search', _('Find Data')),
                 ('activity.dashboard', _('My account'))
                  ) }}
         {% else %}
