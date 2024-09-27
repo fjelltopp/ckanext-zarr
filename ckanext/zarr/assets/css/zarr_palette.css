@@ -73,7 +73,7 @@
 .promoted-background.dynamic-wave-background {
     border-bottom: var(--primary) 1px solid;
     background-image:
-        linear-gradient(to right, var(--primary) 80%, var(--secondary) 80%) !important;
+        linear-gradient(to right, var(--secondary) 80%, var(--primary) 80%) !important;
 }
 
 .promoted-background.dynamic-wave-background::before {
@@ -103,11 +103,11 @@
 }
 
 .promoted-background .nav-tabs li {
-    border-top: 4px solid var(--tag) !important;
-    background: var(--tag-dark) !important;
-    border-bottom: black solid 1px !important;
+    border-top: 4px solid var(--primary) !important;
+    background: var(--tag) !important;
+    border-bottom: var(--tag) solid 1px !important;
     a {
-        color: var(--light) !important;
+        color: var(--primary) !important;
     }
 }
 
@@ -116,14 +116,32 @@
 }
 
 .promoted .badge {
-    background: var(--tag) !important;
+    background: var(--tag-dark) !important;
 }
 
 .promoted .subtitle, .promoted .subtitle a, .promoted .subtitle a:hover,
 .promoted .headline a,
 .promoted-background
 {
-    /*text-align: justify;*/
+    text-align: justify;
+}
+
+.masthead .main-navbar ul li.active a {
+    border-bottom-color: var(--tag-dark) !important;
+}
+
+.main-navbar .navbar-nav li a:hover,
+.main-navbar .navbar-nav li a:focus,
+.main-navbar .navbar-nav li.active a,
+.main-navbar ul li:hover a,
+.main-navbar ul li:focus a,
+.main-navbar ul li.active a
+{
+    color: var(--tag-dark) !important;
+}
+
+.recently-updated H3 {
+    color: var(--tag-dark) !important;
 }
 
 
