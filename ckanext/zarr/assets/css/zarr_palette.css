@@ -73,7 +73,7 @@
 .promoted-background.dynamic-wave-background {
     border-bottom: var(--primary) 1px solid;
     background-image:
-        linear-gradient(to right, var(--secondary) 80%, var(--primary) 80%) !important;
+        linear-gradient(to right, var(--secondary) 80%, var(--tag-dark) 80%) !important;
 }
 
 .promoted-background.dynamic-wave-background::before {
@@ -103,11 +103,20 @@
 }
 
 .promoted-background .nav-tabs li {
-    border-top: 4px solid var(--primary) !important;
-    background: var(--tag) !important;
-    border-bottom: var(--tag) solid 1px !important;
-    a {
+    border-top: 4px solid var(--tag) !important;
+    background: var(--primary) !important;
+    border-bottom: var(--primary) solid 1px !important;
+    a, a:hover {
+        color: var(--light) !important;
+        text-decoration: none;
+    }
+}
+
+.promoted-background .nav-tabs li.active {
+    background: var(--light) !important;
+    a, a:hover {
         color: var(--primary) !important;
+        text-decoration: none;
     }
 }
 
