@@ -51,12 +51,9 @@ dataset_fields:
 
 - field_name: no_pii_confirmation
   label: PII Confirmation
-  preset: multiple_checkbox
+  form_placeholder: I confirm that this dataset contains no personally identifiable information.
+  preset: approval
   required: true
-  choices:
-    - label: I confirm that this dataset contains no personally identifiable information.
-      value: "true"
-  validators: scheming_required
   display_group: Overview
 
 
