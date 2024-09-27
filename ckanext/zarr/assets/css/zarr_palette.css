@@ -144,6 +144,8 @@
     color: var(--tag-dark) !important;
 }
 
-
+.user-profile-page .right-content .logout-btn:hover {
+    background-color: var(--light) !important;
+}
 
 
