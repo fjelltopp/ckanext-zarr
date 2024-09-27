@@ -130,6 +130,10 @@
     border-bottom-color: var(--tag-dark) !important;
 }
 
+.masthead {
+    border-bottom: var(--primary) thin solid !important;
+}
+
 .main-navbar .navbar-nav li a:hover,
 .main-navbar .navbar-nav li a:focus,
 .main-navbar .navbar-nav li.active a,
