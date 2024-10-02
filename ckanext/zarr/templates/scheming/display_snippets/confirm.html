@@ -1,1 +1,6 @@
-<strong>{{ data[field.field_name] }}</strong>
+{% set value = data[field.field_name] %}
+{%  if value == 'approved' %}
+    <strong>{{ _('Yes') }}</strong>
+{% else %}
+    <strong style="color: red">{{ _('Confirmed') }}</strong>
+{% endif %}
