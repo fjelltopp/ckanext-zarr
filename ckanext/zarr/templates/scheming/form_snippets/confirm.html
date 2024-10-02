@@ -25,7 +25,7 @@ fieldset.checkboxes label input {
 
     <fieldset class="checkboxes">
         <label for="approved-{{ field.field_name }}">
-            <input id="checkbox-for-{{ field.field_name }}"
+            <input id="approved-{{ field.field_name }}"
                 type="checkbox"
                  {{"checked " if data[field.field_name] == '1'}}
                 name="approved-{{ field.field_name }}"
