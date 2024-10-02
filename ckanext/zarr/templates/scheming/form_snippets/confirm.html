@@ -22,15 +22,22 @@ fieldset.checkboxes label input {
 
     {% set placeholder = h.scheming_language_text(field.form_placeholder) %}
 
+
     <fieldset class="checkboxes">
-        <label for="field-{{ field.field_name }}">
-            <input id="field-{{ field.field_name }}"
+        <label for="approved-{{ field.field_name }}">
+            <input id="checkbox-for-{{ field.field_name }}"
                 type="checkbox"
-                name="{{ field.field_name }}"
-                value="approved"
-                 />
-            {{ data[field.field_name] }}
+                 {{"checked " if data[field.field_name] == 'approved'}}
+                name="approved-{{ field.field_name }}"
+                onchange="
+                    var hiddenInput = document.getElementById('approval-status-{{ field.field_name }}');
+                    hiddenInput.value = this.checked ? 'approved' : 'rejected';
+                "
+            />
+            {{ placeholder }}
         </label>
+        <input type="hidden" id="approval-status-{{ field.field_name }}" name="{{ field.field_name }}" value="rejected"/>
     </fieldset>
+
     {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 {%- endcall -%}
