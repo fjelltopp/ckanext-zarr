@@ -1,5 +1,5 @@
 {% set value = data[field.field_name] %}
-{%  if value == 'approved' %}
+{%  if value == '1' %}
     <strong>{{ _('Yes') }}</strong>
 {% else %}
     <strong style="color: red">{{ _('No') }}</strong>

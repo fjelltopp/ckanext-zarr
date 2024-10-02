@@ -122,6 +122,6 @@ def date_validator(field, schema):
 def approval_required(field, schema):
     def validator(key, data, errors, context):
         value = data.get(key)
-        if value != "approved":
+        if value != "1":
             errors[key].append(_(f"This field is mandatory."))
     return validator
