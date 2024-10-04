@@ -65,22 +65,19 @@
 .flag-bar {
     width: 60px;
     height: 100%;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 1px solid rgba(0, 0, 0, 0.4);
 }
 .flag-black {
-    background: linear-gradient(to right, #000000, #333333);
+    background: #000000;
 }
 
 .flag-red {
-    background: linear-gradient(to right, #EF3340, #b3242c);
+    background: #EF3340;
 }
 
 .flag-orange {
-    background: linear-gradient(to right, #FCAD56, #d98b44);
+    background: #FCAD56;
 }
 
 .flag-green {
-    background: linear-gradient(to right, #009E49, #006e33);
+    background: #009E49;
 }
