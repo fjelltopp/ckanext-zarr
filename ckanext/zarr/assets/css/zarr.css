@@ -357,3 +357,7 @@
     font-size: 14px;
 }
 
+.dataset.promoted-background .promoted-container .badge {
+    margin-right: 5px;
+}
+
