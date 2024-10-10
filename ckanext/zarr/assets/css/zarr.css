@@ -361,3 +361,6 @@
     margin-right: 5px;
 }
 
+.dataset-content > h2.dataset-heading > span.badge:not(:first-of-type) {
+    margin-left: 5px !important;
+}

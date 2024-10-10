@@ -125,7 +125,7 @@ def get_dataset_resource_type_groups(id, dataset_type='dataset'):
             choices = field['choices']
     if choices:
         return [
-            choice['label']
+            {'label':choice['label'], 'value':choice['value']}
             for choice in choices
             if choice['value'] in groups
         ]
