@@ -108,6 +108,9 @@ def month_formatter(month):
 
 
 def get_dataset_resource_type_groups(id, dataset_type='dataset'):
+    """
+    Fetch resource types from schema and cross compare with dataset affiliated groups
+    """
     dataset = toolkit.get_action('package_show')(
         data_dict={'id': id}
     )
