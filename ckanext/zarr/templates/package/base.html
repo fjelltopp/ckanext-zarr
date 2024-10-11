@@ -19,7 +19,7 @@
                                 {%- if not pkg -%}
                                     <p class="subtitle"> {{_('Home')}} / {{_(dataset_type)}} </p>
                                 {%- else -%}
-                                    {%- set dataset_type_title = h.scheming_get_dataset_schema(pkg.type).get('name', pkg.type) -%}
+                                    {%- set dataset_type_title = h.scheming_get_dataset_schema('data').get('dataset_type', pkg.type) -%}
                                     <p class="subtitle"> {{_('Home')}} / {{_(dataset_type_title)}} </p>
                                 {% endif %}
                             </div>
