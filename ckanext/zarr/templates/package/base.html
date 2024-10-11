@@ -42,7 +42,7 @@
                                 {{ _('Private') }}
                               </span>
                             {% endif %}
-                            {% set resource_types = h.get_dataset_resource_type_groups(pkg.id) %}
+                            {% set resource_types = h.get_dataset_resource_type_groups(pkg.id, dataset_type='data') %}
                             {% for type in resource_types %}
                             <span class="badge resource-type-{{ type['value'] }}">{{ _(type['label']) }}</span>
                             {% endfor %}
