@@ -376,3 +376,7 @@
     text-align: inherit;
     float: right;
 }
+
+.recently-updated .dataset-content .dataset-heading span.badge {
+    display: none;
+}
