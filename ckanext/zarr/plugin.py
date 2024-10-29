@@ -13,7 +13,6 @@ from flask import request, g
 import ckan.model as model
 from sqlalchemy import func
 
-from ckanext.zarr.helpers import lower_formatter
 
 log = logging.getLogger(__name__)
 
