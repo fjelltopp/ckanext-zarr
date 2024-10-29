@@ -111,15 +111,17 @@ class WHOAFROPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
         """
         verify is email is used | different case
         """
-        if not identity or not identity.get('login'):
+        if not identity or not identity.get('login') or not identity.get('password'):
             return None
         login = identity.get('login')
+        password = identity.get('password')
         query = model.Session.query(model.User).filter(
             func.lower(model.User.email) == func.lower(login)
         )
         user = query.first()
         if user and user.is_active:
-            return user
+            if user.validate_password(password):
+                return user
         return None
 
     def identify(self):
