@@ -9,7 +9,6 @@ import ckanext.zarr.upload as zarr_upload
 import ckanext.zarr.validators as zarr_validators
 import ckanext.zarr.helpers as zarr_helpers
 from ckan.lib.plugins import DefaultPermissionLabels
-from flask import request, g
 import ckan.model as model
 from sqlalchemy import func
 
