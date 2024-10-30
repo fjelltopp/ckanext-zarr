@@ -52,6 +52,19 @@ class TestAuthentication:
         authenticated_user = ZaRRPlugin.authenticate(ZaRRPlugin(), identity)
         assert authenticated_user is None
 
+    def test_wrong_password_with_different_case_email(self):
+        """Test authentication fails with incorrect password and different case email"""
+        factories.User(
+            email='test@example.com',
+            password='correctpassword'
+        )
+        identity = {
+            'login': 'Test@Example.com',
+            'password': 'wrongpassword'
+        }
+        authenticated_user = ZaRRPlugin.authenticate(ZaRRPlugin(), identity)
+        assert authenticated_user is None
+
     def test_nonexistent_user(self):
         """Test authentication fails for non-existent user"""
         identity = {
