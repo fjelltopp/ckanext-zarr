@@ -1,7 +1,7 @@
 import pytest
 from ckan.tests import factories
 import ckan.model as model
-from ckanext.zarr.plugin import WHOAFROPlugin as ZaRRPlugin
+from ckanext.zarr.plugin import ZaRRPlugin
 
 
 @pytest.mark.ckan_config('ckan.plugins', "zarr")

@@ -16,7 +16,7 @@ from sqlalchemy import func
 log = logging.getLogger(__name__)
 
 
-class WHOAFROPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
+class ZaRRPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
 
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IFacets, inherit=True)
