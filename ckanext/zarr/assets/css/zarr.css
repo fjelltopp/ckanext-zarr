@@ -384,3 +384,12 @@
         }
     }
 }
+
+.dataset {
+    .promoted .description p,
+    #dataset-description p,
+    .prose.notes
+    {
+        text-align: justify;
+    }
+}
