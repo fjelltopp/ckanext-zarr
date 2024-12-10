@@ -377,6 +377,11 @@
     float: right;
 }
 
+
+ul.nav.nav-tabs {
+    z-index: 9;
+}
+
 .dataset table.table.table-striped.table-bordered.table-condensed {
     tr td {
         dd {
@@ -392,4 +397,3 @@
     {
         text-align: justify;
     }
-}
