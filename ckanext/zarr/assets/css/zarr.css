@@ -378,8 +378,8 @@
 }
 
 .dataset table.table.table-striped.table-bordered.table-condensed {
-    tr {
-        td {
+    tr td {
+        dd {
             word-break: break-all;
         }
     }
