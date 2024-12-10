@@ -380,7 +380,7 @@
 .dataset table.table.table-striped.table-bordered.table-condensed {
     tr {
         td {
-            word-wrap: break-word;
+            word-break: break-all;
         }
     }
 }
